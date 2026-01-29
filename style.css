@@ -1,0 +1,55 @@
+/* Reset básico */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff8e7;
+}
+
+/* Hero fullscreen */
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Imagen animada tipo rubberhose */
+.animated-tv {
+  width: 300px;
+  max-width: 80%;
+  animation: bounce 2s infinite alternate;
+}
+
+/* Animación simple */
+@keyframes bounce {
+  0%   { transform: translateY(0px) rotate(-2deg); }
+  50%  { transform: translateY(-20px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(-2deg); }
+}
+
+/* Texto central con link */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px 25px;
+  border-radius: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.hero-text:hover {
+  background: #000;
+  color: #fff;
+}
