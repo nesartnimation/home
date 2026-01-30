@@ -146,13 +146,13 @@ body.portfolio {
   gap: 40px;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 100px 40px;
+  padding: 80px 40px;
 }
 
 .shop-sidebar {
   width: 200px;
   position: sticky;
-  top: 120px; /* bajo el header */
+  top: 120px;
 }
 
 .shop-sidebar ul {
@@ -175,12 +175,24 @@ body.portfolio {
   color: #000;
 }
 
+/* Productos en 2 columnas, responsive */
 .shop {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 60px;
 }
+
+/* Limitar tamaño de imagen en tienda para no romper el layout */
+.shop .product img {
+  width: 100%;
+  max-width: 400px; /* ajustable según lo que tenías */
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
 
 
 .product {
@@ -315,6 +327,7 @@ body.portfolio {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 
