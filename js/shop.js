@@ -31,14 +31,14 @@ function updateCart() {
 // FUNCION PARA CARGAR PRODUCTOS DESDE JSON
 // =======================
 function loadProducts() {
-  fetch('/nesartnanimation/data/products.json')
+  fetch('data/products.json')
     .then(response => response.json())
     .then(products => {
       products.forEach(product => {
         const div = document.createElement('div');
         div.className = 'product';
         div.innerHTML = `
-          <img src="/nesartnanimation/${product.image}" alt="${product.name}">
+          <img src="${product.image}" alt="${product.name}">
           <h3>${product.name}</h3>
           <p>${product.price}€</p>
           <button class="add-to-cart" data-name="${product.name}" data-price="${product.price}">Añadir al carrito</button>
@@ -46,7 +46,7 @@ function loadProducts() {
         shop.appendChild(div);
       });
 
-      // Añadir eventos a todos los botones creados dinámicamente
+      // Añadir eventos a los botones creados dinámicamente
       const addButtons = document.querySelectorAll('.add-to-cart');
       addButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -65,4 +65,3 @@ function loadProducts() {
 // =======================
 loadProducts();
 updateCart();
-
