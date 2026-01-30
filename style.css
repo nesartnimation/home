@@ -98,38 +98,48 @@ body.portfolio {
 }
 
 /* ==============================
-   GALERÍA ARTÍSTICA
+   GALERÍA MASONRY (Nesart / Comisiones / Originales)
 ============================== */
-.gallery-art {
-  background-color: #f5f5f5;
-  padding: 100px 60px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
+
+.gallery-masonry {
+  column-count: 3;          /* Número de columnas */
+  column-gap: 40px;         /* Espacio horizontal entre columnas */
   max-width: 1200px;
   margin: 0 auto;
+  padding: 100px 60px;
 }
 
-.gallery-art figure {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.gallery-art img {
-  width: auto;
-  max-width: 260px;
-  max-height: 360px;
+.gallery-masonry img {
+  width: 100%;              /* Ocupa toda la columna */
   height: auto;
-  display: block;
+  margin-bottom: 40px;      /* Separación vertical */
+  break-inside: avoid;      /* Evita que la imagen se rompa entre columnas */
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   transition: transform 0.3s ease;
 }
 
-.gallery-art img:hover {
-  transform: scale(1.04);
+.gallery-masonry img:hover {
+  transform: scale(1.03);
 }
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media (max-width: 900px) {
+  .gallery-masonry {
+    column-count: 2;        /* 2 columnas en tablets / pantallas medianas */
+    padding: 80px 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery-masonry {
+    column-count: 1;        /* 1 columna en móvil */
+    padding: 60px 20px;
+  }
+}
+
 
 /* ==============================
    TIENDA
@@ -309,3 +319,4 @@ body.portfolio {
     grid-template-columns: 1fr;
   }
 }
+
