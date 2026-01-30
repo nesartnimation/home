@@ -228,6 +228,7 @@ body.portfolio {
 }
 
 /* --- BOTÓN OVERLAY --- */
+/*
 .overlay-button {
   position: absolute;
   bottom: 18px;
@@ -336,3 +337,4 @@ body.portfolio {
     padding: 60px 20px;
   }
 }
+
