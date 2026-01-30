@@ -24,7 +24,7 @@ function updateCart() {
       li.textContent = `${item.name} - ${item.price}€`;
 
       const removeBtn = document.createElement('button');
-      removeBtn.textContent = '❌';
+      removeBtn.textContent = 'x';
       removeBtn.style.marginLeft = '8px';
       removeBtn.style.cursor = 'pointer';
 
