@@ -126,14 +126,47 @@ body.portfolio {
 /* ==============================
    TIENDA
 ============================== */
+.shop-container {
+  display: flex;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 40px;
+}
+
+.shop-sidebar {
+  width: 200px;
+  position: sticky;
+  top: 120px; /* bajo el header */
+}
+
+.shop-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shop-sidebar li {
+  margin-bottom: 15px;
+}
+
+.shop-sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.shop-sidebar a:hover {
+  color: #000;
+}
+
 .shop {
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(2, minmax(280px, 1fr));
   gap: 60px;
-  padding: 100px 80px;
-  max-width: 1200px;   /* 🔑 evita imágenes enormes */
-  margin: 0 auto;     /* centra la tienda */
 }
+
 
 .product {
   text-align: center;
@@ -267,6 +300,7 @@ body.portfolio {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 
