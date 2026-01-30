@@ -259,6 +259,73 @@ body.portfolio {
   color: #777;
   font-size: 0.95rem;
 }
+/* ==============================
+   PÁGINA DE PRODUCTO
+============================== */
+.product-page {
+  display: flex;
+  max-width: 1200px;
+  margin: 200px auto 100px; /* deja espacio para header */
+  gap: 60px;
+  padding: 0 20px;
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-info h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  font-size: 1rem;
+  color: #555;
+}
+
+#add-to-cart {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+#add-to-cart:hover {
+  background: #cc0000;
+}
+
+.product-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .product-page {
+    flex-direction: column-reverse;
+    margin-top: 220px;
+  }
+
+  .product-image img {
+    max-width: 100%;
+  }
+}
 
 /* ==============================
    CARRITO
@@ -337,4 +404,5 @@ body.portfolio {
     padding: 60px 20px;
   }
 }
+
 
