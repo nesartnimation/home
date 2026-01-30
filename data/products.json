@@ -5,7 +5,9 @@
     "price": 45,
     "image": "images/Productos/Prints/Coffenstein.jpg",
     "link": "producto.html?id=coffenstein",
-    "category": "prints"
+    "category": "prints",
+    "description": "Print inspirado en la película Coffenstein, tamaño A4, edición limitada.",
+    "stock": 5
   },
   {
      "id": "horrormovie",
@@ -13,7 +15,9 @@
     "price": 35,
     "image": "images/Productos/Prints/HorrorMovie.jpg",
     "link": "producto.html?id=horrormovie",
-        "category": "prints"
+    "category": "prints",
+    "description": "Print película de terror años 1920/1930 estilo rubberhose cartoon - tamaño A4.",
+    "stock": 5
   },
   {
      "id": "sickparty",
@@ -21,7 +25,9 @@
     "price": 30,
     "image": "images/Productos/Prints/SickParty.jpg",
     "link": "producto.html?id=sickparty",
-    "category": "prints"
+    "category": "prints",
+    "description": "Print escena comedia Sick Party estilo rubberhose cartoon 1920/1930 - tamaño A4.",
+    "stock": 5
   },
 
   {
@@ -30,7 +36,9 @@
     "price": 45,
     "image": "images/Productos/Prints/Catandfish.jpg",
     "link": "producto.html?id=catandfish",
-    "category": "prints"
+    "category": "prints",
+    "description": "Print escena comedia Cat & Fish estilo rubberhose cartoon 1920/1930 - tamaño A4, edición limitada.",
+    "stock": 5
   },
   {
      "id": "cranhelado",
@@ -38,7 +46,9 @@
     "price": 35,
     "image": "images/Productos/Prints/Cranhelado.jpg",
     "link": "producto.html?id=cranhelado",
-    "category": "prints"
+    "category": "prints",
+    "description": "Print Cranhelado estilo rubberhose cartoon 1920/1930, tamaño A4.",
+    "stock": 5
   },
   {
      "id": "gnomeattack",
@@ -46,9 +56,12 @@
     "price": 30,
     "image": "images/Productos/Prints/Gnome.jpg",
     "link": "producto.html?id=gnomeattack",
-    "category": "prints"
+    "category": "prints",
+    "description": "Print escena comedia Gnome Attack estilo rubberhose cartoon 1920/1930, tamaño A4.",
+    "stock": 5
   }
 ]
+
 
 
 
