@@ -1,20 +1,21 @@
 [
   {
-    "name": "Print 1",
+    "name": "COFFENSTEIN",
     "price": 45,
     "image": "images/Productos/Prints/Coffenstein.jpg",
     "link": "#"
   },
   {
-    "name": "Print 2",
+    "name": "HORROR MOVIE",
     "price": 35,
     "image": "images/Productos/Prints/HorrorMovie.png",
     "link": "#"
   },
   {
-    "name": "Print 3",
+    "name": "SICK PARTY",
     "price": 30,
     "image": "images/Productos/Prints/SickParty.png",
     "link": "#"
   }
 ]
+
