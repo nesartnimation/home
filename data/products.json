@@ -5,7 +5,7 @@
     "price": 45,
     "image": "images/Productos/Prints/Coffenstein.jpg",
     "link": "producto.html?id=coffenstein"
-    "category": "prints"
+    "category": "prints",
   },
   {
      "id": "horrormovie",
@@ -13,7 +13,7 @@
     "price": 35,
     "image": "images/Productos/Prints/HorrorMovie.jpg",
     "link": "producto.html?id=horrormovie"
-        "category": "prints"
+        "category": "prints",
   },
   {
      "id": "sickparty",
@@ -21,7 +21,7 @@
     "price": 30,
     "image": "images/Productos/Prints/SickParty.jpg",
     "link": "producto.html?id=sickparty"
-    "category": "prints"
+    "category": "prints",
   },
 
   {
@@ -30,7 +30,7 @@
     "price": 45,
     "image": "images/Productos/Prints/Catandfish.jpg",
     "link": "producto.html?id=catandfish"
-    "category": "prints"
+    "category": "prints",
   },
   {
      "id": "cranhelado",
@@ -38,7 +38,7 @@
     "price": 35,
     "image": "images/Productos/Prints/Cranhelado.jpg",
     "link": "producto.html?id=cranhelado"
-    "category": "prints"
+    "category": "prints",
   },
   {
      "id": "gnomeattack",
@@ -46,9 +46,10 @@
     "price": 30,
     "image": "images/Productos/Prints/Gnome.jpg",
     "link": "producto.html?id=gnomeattack"
-    "category": "prints"
+    "category": "prints",
   }
 ]
+
 
 
 
