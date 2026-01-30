@@ -2,20 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Comisiones - Mi Portfolio Rubberhose</title>
+  <title>Comisiones</title>
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
 
-  <!-- ===== HEADER Y MENÚ ===== -->
+<body class="portfolio">
+
 <header id="main-header">
   <div class="logo-container">
     <img src="images/LogoNesArt.png" alt="Logo NesArt" class="logo">
   </div>
+
   <nav id="main-menu">
     <ul>
-      <li><a href="nesart.html">Nesart</a></li>
+      <li><a href="nesart.html">NesArt</a></li>
       <li><a href="comisiones.html">Comisiones</a></li>
       <li><a href="originales.html">Originales</a></li>
       <li><a href="tienda.html">Tienda</a></li>
@@ -24,15 +25,13 @@
   </nav>
 </header>
 
- 
+<main>
+<section class="gallery-art" 
+         id="gallery"
+         data-folder="Comisiones">
+</section>
 
-  <!-- GALERÍA -->
-  <section>
-    <div class="gallery">
-      <img src="images/ilustracion1.png" alt="Ilustración 1">
-      <img src="images/ilustracion2.png" alt="Ilustración 2">
-    </div>
-  </section>
+<script src="js/gallery.js"></script>
 
 </body>
 </html>
