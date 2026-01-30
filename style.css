@@ -250,11 +250,19 @@ body.portfolio {
 @media (max-width: 900px) {
   .shop {
     grid-template-columns: 1fr;
-    padding: 80px 40px;
+    padding: 60px 30px;
   }
 
   .gallery-art {
+    grid-template-columns: repeat(2, 1fr);
     padding: 60px 30px;
   }
 }
+
+@media (max-width: 500px) {
+  .gallery-art {
+    grid-template-columns: 1fr;
+  }
+}
+
 
