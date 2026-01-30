@@ -13,16 +13,30 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 // =======================
 function updateCart() {
   cartItems.innerHTML = '';
+
   if (cart.length === 0) {
     cartEmpty.style.display = 'block';
   } else {
     cartEmpty.style.display = 'none';
-    cart.forEach(item => {
+    cart.forEach((item, index) => {
       const li = document.createElement('li');
       li.textContent = `${item.name} - ${item.price}€`;
+
+      // Botón para eliminar del carrito
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = '❌';
+      removeBtn.style.marginLeft = '8px';
+      removeBtn.style.cursor = 'pointer';
+      removeBtn.addEventListener('click', () => {
+        cart.splice(index, 1);
+        updateCart();
+      });
+
+      li.appendChild(removeBtn);
       cartItems.appendChild(li);
     });
   }
+
   cartCount.textContent = cart.length;
   localStorage.setItem('cart', JSON.stringify(cart));
 }
@@ -41,10 +55,11 @@ function loadProducts() {
         const div = document.createElement('div');
         div.className = 'product';
 
-        // Crear elementos en lugar de innerHTML para evitar problemas
+        // Imagen con placeholder si falla
         const img = document.createElement('img');
         img.src = product.image;
         img.alt = product.name;
+        img.onerror = () => { img.src = 'images/placeholder.png'; }; // placeholder opcional
 
         const name = document.createElement('h3');
         name.textContent = product.name;
@@ -68,7 +83,7 @@ function loadProducts() {
         shop.appendChild(div);
       });
 
-      // Actualizar carrito después de cargar productos
+      // ✅ Actualizar carrito después de cargar productos
       updateCart();
     })
     .catch(error => {
