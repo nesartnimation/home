@@ -33,17 +33,30 @@
   </div>
 </header>
 
+<!-- ================= CONTENIDO TIENDA ================= -->
 <main>
-    <!-- SECCIÓN DE PRODUCTOS -->
-    <section class="shop" id="shop">
-      <!-- Los productos se cargarán automáticamente desde JSON -->
-    </section>
-  </main>
+  <div class="shop-container">
 
-  <!-- Script para tienda y carrito -->
-  <script src="js/shop.js"></script>
+    <!-- SIDEBAR IZQUIERDO -->
+    <aside class="shop-sidebar">
+      <ul>
+        <li><a href="categoria.html?id=prints">Prints</a></li>
+        <li><a href="categoria.html?id=llaveros">Llaveros</a></li>
+        <li><a href="categoria.html?id=chapas">Chapas</a></li>
+        <li><a href="categoria.html?id=stickers">Stickers</a></li>
+      </ul>
+    </aside>
+  
+  <!-- GRID DE PRODUCTOS -->
+    <section class="shop" id="shop">
+      <!-- Productos cargados dinámicamente desde products.json -->
+    </section>
+
+  </div>
+</main>
+
+<!-- ================= JS ================= -->
+<script src="js/shop.js"></script>
 
 </body>
 </html>
-
-
