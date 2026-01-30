@@ -10,14 +10,14 @@
      "id": "horrormovie",
     "name": "HORROR MOVIE",
     "price": 35,
-    "image": "images/Productos/Prints/HorrorMovie.png",
+    "image": "images/Productos/Prints/HorrorMovie.jpg",
     "link": "producto.html?id=horrormovie"
   },
   {
      "id": "sickparty",
     "name": "SICK PARTY",
     "price": 30,
-    "image": "images/Productos/Prints/SickParty.png",
+    "image": "images/Productos/Prints/SickParty.jpg",
     "link": "producto.html?id=sickparty"
   }
 
@@ -32,17 +32,18 @@
      "id": "cranhelado",
     "name": "CRANHELADO",
     "price": 35,
-    "image": "images/Productos/Prints/Cranhelado.png",
+    "image": "images/Productos/Prints/Cranhelado.jpg",
     "link": "producto.html?id=cranhelado"
   },
   {
      "id": "gnomeatack",
     "name": "GNOME ATTACK",
     "price": 30,
-    "image": "images/Productos/Prints/SickParty.png",
+    "image": "images/Productos/Prints/SickParty.jpg",
     "link": "producto.html?id=sickparty"
   }
 ]
+
 
 
 
