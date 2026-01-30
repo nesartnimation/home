@@ -1,94 +1,77 @@
 /* ==============================
-   TIPOGRAFÍA RUBBERHOSE PARA HOME
+   GOOGLE FONT SOLO HOME
 ============================== */
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
 /* ==============================
-   RESET BÁSICO
+   RESET
 ============================== */
-body, html {
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
+  background-color: #ffffff;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  background-color: #ffffff; 
 }
 
 /* ==============================
-   TIPOGRAFÍA SEGÚN PÁGINA
-============================== */
-body.home {
-  font-family: 'Luckiest Guy', cursive;
-}
-
-body:not(.home) {
-  font-family: Arial, sans-serif;
-}
-
-/* ==============================
-   HERO DE INDEX (full screen fijo con vídeo)
+   HOME (INDEX)
 ============================== */
 #hero {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   overflow: hidden;
-  z-index: 1;
-  background-color: #000000; /* opcional, negro de fondo si el video tarda en cargar */
 }
 
-/* Vídeo full screen de fondo */
 .hero-bg {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
   pointer-events: none;
 }
 
-/* Texto central transparente y centrado */
 .hero-text {
   position: relative;
   z-index: 2;
   font-family: 'Luckiest Guy', cursive;
   font-size: 3rem;
-  color: #ffffff; /* blanco */
+  color: #ffffff;
   text-decoration: none;
-  background: transparent; /* ya no tiene fondo blanco */
-  padding: 20px 40px; /* opcional, agrega espacio alrededor del texto */
+  background: transparent;
   cursor: pointer;
-  transition: transform 0.3s, color 0.3s;
-  border-radius: 10px; /* opcional, para mantener forma si quieres borde */
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Hover efecto */
 .hero-text:hover {
   transform: scale(1.1);
-  color: #ffffff; /* ejemplo: cambia color al pasar el mouse */
+  opacity: 0.9;
 }
 
-
 /* ==============================
-   HEADER Y MENÚ PORTFOLIO
+   HEADER / MENU (PORTFOLIO)
 ============================== */
+body.portfolio {
+  font-family: Arial, sans-serif;
+  padding-top: 170px;
+}
+
 #main-header {
-  width: 100%;
-  text-align: center;
   position: fixed;
   top: 0;
-  background-color: #ffffff; 
+  width: 100%;
+  background: #ffffff;
+  text-align: center;
   z-index: 100;
-  box-shadow: none; 
 }
 
 .logo-container {
@@ -96,176 +79,132 @@ body:not(.home) {
 }
 
 .logo {
-  height: 120px; 
-  width: auto;
+  height: 120px;
 }
 
 #main-menu ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  margin: 0;
+  gap: 40px;
   padding: 10px 0;
-}
-
-#main-menu li {
-  margin: 0 20px;
+  margin: 0;
 }
 
 #main-menu a {
-  font-family: Arial, sans-serif; 
-  font-size: 1.3rem;
-  color: #666666;
+  color: #666;
   text-decoration: none;
-}
-
-#main-menu a:active,
-#main-menu a:visited,
-#main-menu a:focus,
-#main-menu a:hover {
-  color: #666666;
-  text-decoration: none;
-}
-
-#main-menu li ul {
-  display: none !important;
-}
-
-/* Espacio para contenido debajo del header (portfolio) */
-body.portfolio {
-  padding-top: 170px; 
-}
-
-/* ==============================
-   HERO DE PORTFOLIO
-============================== */
-#hero-portfolio {
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: #ffffff;
-}
-
-#hero-portfolio h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-#hero-portfolio p {
   font-size: 1.2rem;
 }
 
 /* ==============================
-   SECCIONES DE GALERÍAS
+   GALERÍAS ARTE (NESART / ETC)
 ============================== */
-section {
-  padding: 80px 20px;
-  text-align: center;
-  background-color: #ffffff; 
+.gallery-art {
+  background-color: #f5f5f5;
+  padding: 100px 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 60px;
 }
 
-section h1, section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.gallery-art img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.gallery img {
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+.gallery-art img:hover {
+  transform: scale(1.02);
 }
 
 /* ==============================
    TIENDA
 ============================== */
 .shop {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  padding: 80px 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px;
+  padding: 120px 100px;
 }
 
 .product {
-  width: 100%;
   text-align: center;
-  background-color: #ffffff;
 }
 
-.product img {
+/* --- IMAGEN CUADRADA --- */
+.product-image-wrapper {
+  position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;          /* 🔥 caja cuadrada */
-  object-fit: cover;            /* recorte elegante */
-  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.product-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.product-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
+/* --- BOTÓN OVERLAY --- */
+.overlay-button {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.9);
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-image-wrapper:hover .overlay-button {
+  opacity: 1;
+}
+
+/* --- TEXTO PRODUCTO --- */
 .product h3 {
-  margin: 10px 0 5px 0;
+  margin: 18px 0 6px;
+  font-size: 1.1rem;
+  font-weight: normal;
 }
 
 .product p {
-  font-size: 0.9rem;
-  color: #666666;
-  min-height: 40px;
-}
-
-.product button.add-to-cart {
-  margin-top: 10px;
-  padding: 0;
-  border: none;
-  background: none;
-  color: #999999;
-  font-size: 1rem;
-  cursor: pointer;
-  text-decoration: underline;
-  transition: color 0.3s;
-}
-
-.product button.add-to-cart:hover {
-  color: #666666;
+  margin: 0;
+  color: #777;
+  font-size: 0.95rem;
 }
 
 /* ==============================
-   CARRITO FLOTE
+   CARRITO
 ============================== */
 #cart {
   position: fixed;
   top: 20px;
   right: 20px;
+  background: rgba(255,255,255,0.95);
+  padding: 10px 14px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 1.5rem;
   z-index: 200;
-  background: rgba(255,255,255,0.9);
-  padding: 10px;
-  border-radius: 10px;
 }
 
 #cart-count {
   background: #ff0000;
-  color: white;
+  color: #fff;
   border-radius: 50%;
   padding: 2px 8px;
   font-size: 0.9rem;
-  vertical-align: top;
-  margin-right: 5px;
 }
 
 #cart-dropdown {
@@ -273,23 +212,26 @@ section h1, section h2 {
   position: absolute;
   top: 40px;
   right: 0;
+  width: 260px;
   background: #ffffff;
-  border: 1px solid #ccc;
-  width: 250px;
-  max-height: 300px;
-  overflow-y: auto;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 12px;
 }
 
 #cart:hover #cart-dropdown {
   display: block;
 }
 
-#cart-items li {
+#cart-items {
   list-style: none;
-  margin: 5px 0;
+  padding: 0;
+  margin: 0;
+}
+
+#cart-items li {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
 }
 
 #cart-empty {
@@ -299,41 +241,15 @@ section h1, section h2 {
 }
 
 /* ==============================
-   GALERÍA DE ARTE
+   RESPONSIVE
 ============================== */
-.gallery-art {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 60px;
-  padding: 100px 80px;
-  background-color: #ffffff;
+@media (max-width: 900px) {
+  .shop {
+    grid-template-columns: 1fr;
+    padding: 80px 40px;
+  }
+
+  .gallery-art {
+    padding: 60px 30px;
+  }
 }
-
-.gallery-art figure {
-  margin: 0;
-  position: relative;
-}
-
-.gallery-art img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.gallery-art img:hover {
-  transform: scale(1.02);
-  opacity: 0.95;
-}
-
-.gallery-art figcaption {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #999;
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-}
-
-
-
-
