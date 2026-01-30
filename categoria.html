@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda - Categoría</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="portfolio">
+
+<!-- HEADER Y MENÚ -->
+<header id="main-header">
+  <div class="logo-container">
+    <img src="images/LogoNesArt.png" alt="Logo NesArt" class="logo">
+  </div>
+  <nav id="main-menu">
+    <ul>
+      <li><a href="nesart.html">Nesart</a></li>
+      <li><a href="comisiones.html">Comisiones</a></li>
+      <li><a href="originales.html">Originales</a></li>
+      <li><a href="tienda.html">Tienda</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- CARRITO FLOTE -->
+  <div id="cart">
+    <span id="cart-count">0</span> 🛒
+    <div id="cart-dropdown">
+      <ul id="cart-items"></ul>
+      <p id="cart-empty">Tu carrito está vacío</p>
+    </div>
+  </div>
+</header>
+
+<main style="padding-top: 180px;">
+  <div class="shop-container">
+    
+    <!-- SIDEBAR DE CATEGORÍAS -->
+    <aside class="shop-sidebar">
+      <ul>
+        <li><a href="categoria.html?id=prints">Prints</a></li>
+        <li><a href="categoria.html?id=llaveros">Llaveros</a></li>
+        <li><a href="categoria.html?id=chapas">Chapas</a></li>
+        <li><a href="categoria.html?id=stickers">Stickers</a></li>
+      </ul>
+    </aside>
+
+    <!-- SECCIÓN DE PRODUCTOS -->
+    <section class="shop" id="shop">
+      <!-- Los productos se cargarán automáticamente desde JSON -->
+    </section>
+
+  </div>
+</main>
+
+<!-- JS DE TIENDA Y CARRITO -->
+<script src="js/shop.js"></script>
+
+</body>
+</html>
