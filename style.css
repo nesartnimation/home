@@ -41,7 +41,7 @@ body:not(.home) {
   text-align: center;
   overflow: hidden;
   z-index: 1;
-  background-color: #ffffff;
+  background-color: #000000; /* opcional, negro de fondo si el video tarda en cargar */
 }
 
 /* Vídeo full screen de fondo */
@@ -56,24 +56,27 @@ body:not(.home) {
   pointer-events: none;
 }
 
-/* Texto central con Luckiest Guy */
+/* Texto central transparente y centrado */
 .hero-text {
   position: relative;
   z-index: 2;
   font-family: 'Luckiest Guy', cursive;
   font-size: 3rem;
-  color: #fff;
+  color: #ffffff; /* blanco */
   text-decoration: none;
-  background: none;
-  padding: 0;
+  background: transparent; /* ya no tiene fondo blanco */
+  padding: 20px 40px; /* opcional, agrega espacio alrededor del texto */
   cursor: pointer;
   transition: transform 0.3s, color 0.3s;
+  border-radius: 10px; /* opcional, para mantener forma si quieres borde */
 }
 
+/* Hover efecto */
 .hero-text:hover {
   transform: scale(1.1);
-  color: #333;
+  color: #ffffff; /* ejemplo: cambia color al pasar el mouse */
 }
+
 
 /* ==============================
    HEADER Y MENÚ PORTFOLIO
@@ -330,3 +333,4 @@ section h1, section h2 {
   text-align: center;
   font-family: 'Arial', sans-serif;
 }
+
