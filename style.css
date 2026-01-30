@@ -97,43 +97,59 @@ body.portfolio {
   font-size: 1.2rem;
 }
 
-/* GALERÍA COMISIONES / NESART / ORIGINAL */
+/* ==============================
+   GALERÍA ARTÍSTICA
+   Nesart / Comisiones / Originales
+============================== */
+
 .gallery-art {
   background-color: #f5f5f5;
-  padding: 100px 80px;
+  padding: 100px 60px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(240px, 1fr)); /* 3 columnas */
-  gap: 50px;
-  max-width: 1400px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  max-width: 1200px;   /* 🔴 límite REAL del ancho */
   margin: 0 auto;
 }
 
+/* CONTENEDOR DE CADA OBRA */
+.gallery-art figure {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* IMAGEN */
 .gallery-art img {
-  width: 100%;
-  max-width: 300px; /* limita tamaño */
+  width: auto;              /* 🔴 clave */
+  max-width: 260px;         /* tamaño artístico */
+  max-height: 360px;        /* evita gigantismo vertical */
   height: auto;
   display: block;
-  margin: 0 auto;
   border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   transition: transform 0.3s ease;
 }
 
 .gallery-art img:hover {
-  transform: scale(1.02);
+  transform: scale(1.04);
 }
 
-/* Responsive */
+/* ==============================
+   RESPONSIVE
+============================== */
+
 @media (max-width: 900px) {
   .gallery-art {
     grid-template-columns: repeat(2, 1fr);
-    padding: 60px 40px;
+    padding: 70px 40px;
   }
 }
 
 @media (max-width: 500px) {
   .gallery-art {
     grid-template-columns: 1fr;
-    padding: 40px 20px;
+    padding: 50px 20px;
   }
 }
 
@@ -326,6 +342,7 @@ body.portfolio {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 
