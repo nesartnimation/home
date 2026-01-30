@@ -104,8 +104,10 @@ body.portfolio {
   background-color: #f5f5f5;
   padding: 100px 80px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 60px;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 50px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .gallery-art img {
@@ -123,9 +125,11 @@ body.portfolio {
 ============================== */
 .shop {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 80px;
-  padding: 120px 100px;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 60px;
+  padding: 100px 80px;
+  max-width: 1200px;   /* 🔑 evita imágenes enormes */
+  margin: 0 auto;     /* centra la tienda */
 }
 
 .product {
@@ -253,3 +257,4 @@ body.portfolio {
     padding: 60px 30px;
   }
 }
+
