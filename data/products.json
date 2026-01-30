@@ -3,19 +3,20 @@
     "name": "COFFENSTEIN",
     "price": 45,
     "image": "images/Productos/Prints/Coffenstein.jpg",
-    "link": "#"
+    "link": "print-coffenstein.html"
   },
   {
     "name": "HORROR MOVIE",
     "price": 35,
     "image": "images/Productos/Prints/HorrorMovie.png",
-    "link": "#"
+    "link": "print-horrormovie.html"
   },
   {
     "name": "SICK PARTY",
     "price": 30,
     "image": "images/Productos/Prints/SickParty.png",
-    "link": "#"
+    "link": "print-sickparty.html"
   }
 ]
+
 
