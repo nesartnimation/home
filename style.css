@@ -61,7 +61,7 @@ html, body {
    HEADER / MENU (PORTFOLIO)
 ============================== */
 body.portfolio {
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   padding-top: 170px;
 }
 
@@ -267,6 +267,7 @@ body.portfolio {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 
