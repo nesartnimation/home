@@ -104,18 +104,17 @@ body.portfolio {
   background-color: #f5f5f5;
   padding: 100px 60px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .gallery-art img {
-  width: auto;
-  max-width: 260px;
-  max-height: 360px;
-  display: block;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   transition: transform 0.3s ease;
@@ -197,7 +196,7 @@ body.portfolio {
 .shop {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   padding: 0 60px;
 }
@@ -207,21 +206,25 @@ body.portfolio {
   text-align: center;
 }
 
-/* --- IMAGEN CUADRADA --- */
+/* --- IMAGEN CUADRADA CON CENTRADO FLEX --- */
 .product-image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 4/3; /* caja proporcional a la mayoría de ilustraciones */
+  aspect-ratio: 1 / 1; /* caja cuadrada */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
+  border-radius: 12px;
 }
 
 .product-image-wrapper a,
 .product-image-wrapper img {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
-  object-position: center center; /* centra la imagen */
+  object-position: center center;
+  display: block;
 }
 
 /* --- BOTÓN OVERLAY --- */
@@ -243,7 +246,7 @@ body.portfolio {
   opacity: 1;
 }
 
-/* --- TEXTO --- */
+/* --- TEXTO PRODUCTO --- */
 .product h3 {
   margin: 18px 0 6px;
   font-size: 1.1rem;
@@ -258,7 +261,7 @@ body.portfolio {
 
 /* ==============================
    PÁGINA DE PRODUCTO
-============================== */
+============================= */
 .product-page {
   display: flex;
   max-width: 1200px;
@@ -314,7 +317,7 @@ body.portfolio {
 
 /* ==============================
    CARRITO
-============================== */
+============================= */
 #cart {
   position: fixed;
   top: 20px;
@@ -352,7 +355,7 @@ body.portfolio {
 
 /* ==============================
    RESPONSIVE
-============================== */
+============================= */
 @media (max-width: 900px) {
   .shop-container {
     flex-direction: column;
