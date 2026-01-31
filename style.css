@@ -61,7 +61,7 @@ html, body {
    HEADER / MENU (PORTFOLIO)
 ============================== */
 body.portfolio {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   padding-top: 170px;
 }
 
@@ -112,7 +112,7 @@ body.portfolio {
 
 .gallery-art img {
   width: auto;
-  max-width: 260px;      /* Contiene el tamaño */
+  max-width: 260px;
   max-height: 360px;
   display: block;
   margin: 0 auto;
@@ -158,6 +158,7 @@ body.portfolio {
   max-width: 1400px;
   margin: 0 auto;
   padding: 200px 0 100px;
+  gap: 60px;
 }
 
 /* --- SIDEBAR IZQUIERDA --- */
@@ -195,10 +196,10 @@ body.portfolio {
 /* --- GRID PRODUCTOS --- */
 .shop {
   flex: 1;
-  padding: 0 60px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(260px, 1fr));
-  gap: 60px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  padding: 0 60px;
 }
 
 /* --- PRODUCTO --- */
@@ -210,25 +211,20 @@ body.portfolio {
 .product-image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4/3; /* caja proporcional a la mayoría de ilustraciones */
   overflow: hidden;
 }
 
-.product-link {
+.product-image-wrapper a,
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
   display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.product-link img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  display: block;
+  object-position: center center; /* centra la imagen */
 }
 
 /* --- BOTÓN OVERLAY --- */
-/*
 .overlay-button {
   position: absolute;
   bottom: 18px;
@@ -259,13 +255,14 @@ body.portfolio {
   color: #777;
   font-size: 0.95rem;
 }
+
 /* ==============================
    PÁGINA DE PRODUCTO
 ============================== */
 .product-page {
   display: flex;
   max-width: 1200px;
-  margin: 200px auto 100px; /* deja espacio para header */
+  margin: 200px auto 100px;
   gap: 60px;
   padding: 0 20px;
 }
@@ -313,18 +310,6 @@ body.portfolio {
   width: 100%;
   max-width: 500px;
   border-radius: 12px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .product-page {
-    flex-direction: column-reverse;
-    margin-top: 220px;
-  }
-
-  .product-image img {
-    max-width: 100%;
-  }
 }
 
 /* ==============================
@@ -404,6 +389,3 @@ body.portfolio {
     padding: 60px 20px;
   }
 }
-
-
-
