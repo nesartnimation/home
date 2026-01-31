@@ -65,34 +65,35 @@
   "id": "chapa-beer",
   "name": "CHAPA BEER",
   "price": 5,
-  "image": "productos/chapas/Beer.png",
+  "image": "images/Productos/Chapas/Beer.png",
   "link": "producto.html?id=chapa-beer",
   "category": "chapas",
-  "description": "Chapa metálica ilustrada Beer.",
+  "description": "Chapa metálica ilustrada Beer estilo rubberhose 1920/1930.",
   "stock": 20
 },
 {
   "id": "chapa-billcypher",
   "name": "CHAPA BILL CYPHER",
   "price": 5,
-  "image": "productos/chapas/BillCypher.png",
+  "image": "images/Productos/Chapas/BillCypher.png",
   "link": "producto.html?id=chapa-billcypher",
   "category": "chapas",
-  "description": "Chapa ilustrada Bill Cypher.",
+  "description": "Chapa ilustrada Bill Cypher a color estilo rubberhose 1920/1930.",
   "stock": 20
 },
 {
   "id": "chapa-timeout",
   "name": "CHAPA TIME OUT",
   "price": 5,
-  "image": "productos/chapas/TimeOut.png",
+  "image": "images/Productos/Chapas/TimeOut.png",
   "link": "producto.html?id=chapa-timeout",
   "category": "chapas",
-  "description": "Chapa ilustrada Time Out.",
+  "description": "Chapa ilustrada Time Out a color  estilo rubberhose 1920/1930.",
   "stock": 20
 }
 
 ]
+
 
 
 
