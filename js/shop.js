@@ -104,7 +104,10 @@ const cartContainer = document.getElementById('cart');
 if (cartContainer) {
   cartContainer.addEventListener('click', () => {
     if (cart.length === 0) {
-      alert('Todavía no has puesto nada en tu carrito');
+      // Mensaje dentro del dropdown
+      cartEmpty.textContent = 'Todavía no has puesto nada en tu carrito';
+      cartEmpty.style.display = 'block';
+      return; // no redirigir
     }
     window.location.href = 'checkout.html';
   });
@@ -114,3 +117,4 @@ if (cartContainer) {
 // ACTUALIZAR CARRITO AL INICIO
 // =======================
 updateCart();
+
