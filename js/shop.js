@@ -2,7 +2,10 @@
 // VARIABLES GLOBALES
 // =======================
 const shop = document.querySelector('.shop');
+const cartItems = document.getElementById('cart-items');
 const cartCount = document.getElementById('cart-count');
+const cartEmpty = document.getElementById('cart-empty');
+const cartTotal = document.getElementById('cart-total');
 const categoryLinks = document.querySelectorAll('.shop-sidebar a');
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -12,16 +15,47 @@ let allProducts = []; // guardar productos desde JSON
 // FUNCIONES
 // =======================
 
-// Actualiza el contador del carrito y guarda en localStorage
-function updateCartCount() {
-  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-  if(cartCount){
-    cartCount.textContent = totalQuantity;
+// Actualiza carrito
+function updateCart() {
+  cartItems.innerHTML = '';
+  if (cart.length === 0) {
+    cartEmpty.style.display = 'block';
+  } else {
+    cartEmpty.style.display = 'none';
+    cart.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        ${item.name} - $${item.price} x ${item.quantity}
+        <button class="remove-item" data-index="${index}">✖</button>
+      `;
+      cartItems.appendChild(li);
+    });
   }
+
+  // Contador total
+  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+  cartCount.textContent = totalQuantity;
+
+  // Total precio
+  if (cartTotal) {
+    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    cartTotal.textContent = `Total: $${totalPrice}`;
+  }
+
+  // Guardar en localStorage
   localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Botones eliminar
+  document.querySelectorAll('.remove-item').forEach(button => {
+    button.addEventListener('click', () => {
+      const index = button.getAttribute('data-index');
+      cart.splice(index, 1);
+      updateCart();
+    });
+  });
 }
 
-// Renderizar productos (opcional filtrado por categoría)
+// Renderiza productos
 function renderProducts(products) {
   shop.innerHTML = '';
   products.forEach(product => {
@@ -32,20 +66,20 @@ function renderProducts(products) {
         <a href="${product.link}" class="product-link">
           <img src="${product.image}" alt="${product.name}">
         </a>
+        <button class="overlay-button add-to-cart" 
+          data-id="${product.id}" 
+          data-name="${product.name}" 
+          data-price="${product.price}">
+          Añadir al carrito
+        </button>
       </div>
       <h3>${product.name}</h3>
       <p>${product.price}€</p>
-      <button class="add-to-cart" 
-        data-id="${product.id}" 
-        data-name="${product.name}" 
-        data-price="${product.price}">
-        Añadir al carrito
-      </button>
     `;
     shop.appendChild(div);
   });
 
-  // Añadir producto al carrito
+  // Botones añadir al carrito
   document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', () => {
       const id = button.getAttribute('data-id');
@@ -53,21 +87,19 @@ function renderProducts(products) {
       const price = parseFloat(button.getAttribute('data-price'));
 
       const existing = cart.find(item => item.id === id);
-      if(existing){
+      if (existing) {
         existing.quantity += 1;
       } else {
         cart.push({ id, name, price, quantity: 1 });
       }
-
-      // Actualizar contador únicamente (sin popups)
-      updateCartCount();
+      updateCart();
     });
   });
 }
 
-// Filtrado por categoría
-function filterByCategory(category){
-  if(category === 'all'){
+// Filtrar productos por categoría
+function filterByCategory(category) {
+  if (!category || category === 'all') {
     renderProducts(allProducts);
   } else {
     const filtered = allProducts.filter(p => p.category === category);
@@ -82,26 +114,32 @@ function loadProducts() {
   fetch('data/products.json')
     .then(res => res.json())
     .then(products => {
-      allProducts = products;       // guardamos todos
-      renderProducts(allProducts);  // mostramos todos al inicio
-      updateCartCount();            // actualizar contador inicial
+      allProducts = products;
+
+      // =======================
+      // FILTRADO AUTOMÁTICO POR QUERY STRING
+      // =======================
+      const params = new URLSearchParams(window.location.search);
+      const category = params.get('category');
+      filterByCategory(category);
     })
     .catch(err => console.error('Error al cargar productos:', err));
 }
 
 // =======================
-// EVENTOS SIDEBAR
+// INICIALIZACIÓN
+// =======================
+loadProducts();
+updateCart();
+
+// =======================
+// EVENTOS SIDEBAR (CAMBIAR URL AL HACER CLICK)
 // =======================
 categoryLinks.forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
     const cat = link.getAttribute('data-category');
-    filterByCategory(cat);
+    // Cambia la URL y recarga la página filtrando
+    window.location.href = `tienda.html?category=${cat}`;
   });
 });
-
-// =======================
-// INICIALIZACIÓN
-// =======================
-loadProducts();
-updateCartCount();
