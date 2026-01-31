@@ -12,13 +12,18 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let allProducts = []; // guardar productos desde JSON
 
 // =======================
-// CARRITO
+// CARRITO: solo contador
 // =======================
 function updateCartCount() {
   const total = cart.reduce((sum, item) => sum + item.quantity, 0);
   cartCount.textContent = total;
   localStorage.setItem('cart', JSON.stringify(cart));
 }
+
+// Carrito siempre clicable, lleva a checkout
+document.getElementById('cart').addEventListener('click', () => {
+  window.location.href = 'checkout.html';
+});
 
 // =======================
 // RENDER PRODUCTOS
@@ -30,7 +35,6 @@ function renderProducts(products) {
     const div = document.createElement('div');
     div.className = 'product';
 
-    // Aquí eliminamos el botón dentro de la imagen
     div.innerHTML = `
       <div class="product-image-wrapper">
         <a href="${product.link}">
