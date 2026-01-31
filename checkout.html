@@ -21,65 +21,90 @@
 
   <h1>Finalizar compra</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Producto</th>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Cantidad</th>
-        <th>Subtotal</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody id="checkout-items"></tbody>
-  </table>
+  <div class="checkout-content">
 
-  <p class="checkout-total" id="checkout-total">Total: 0€</p>
+    <!-- LISTA DE PRODUCTOS -->
+    <div class="checkout-items-container">
+      <div id="checkout-items">
+        <!-- Productos se renderizan desde JS -->
+      </div>
+      <p class="checkout-empty-message" id="checkout-empty">Todavía no has puesto nada en tu carrito</p>
+    </div>
 
-  <button class="checkout-button">Proceder al pago</button>
+    <!-- RESUMEN DEL PEDIDO -->
+    <aside class="checkout-summary">
+      <h2>Resumen del pedido</h2>
+      <p id="checkout-total">Total: 0€</p>
+      <button class="checkout-button">Proceder al pago</button>
+    </aside>
 
+  </div>
 </main>
 
 <script>
-const tbody = document.getElementById('checkout-items');
+const itemsContainer = document.getElementById('checkout-items');
+const emptyMessage = document.getElementById('checkout-empty');
 const totalEl = document.getElementById('checkout-total');
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function renderCheckout() {
-  tbody.innerHTML = '';
+  itemsContainer.innerHTML = '';
   let total = 0;
 
   if (cart.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="6">Todavía no has puesto nada en tu carrito</td></tr>';
+    emptyMessage.style.display = 'block';
     totalEl.textContent = 'Total: 0€';
     return;
+  } else {
+    emptyMessage.style.display = 'none';
   }
 
   cart.forEach((item, index) => {
     const subtotal = item.price * item.quantity;
     total += subtotal;
 
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><img src="${item.image}" style="width:60px"></td>
-      <td>${item.name}</td>
-      <td>${item.price}€</td>
-      <td>${item.quantity}</td>
-      <td>${subtotal}€</td>
-      <td><button data-index="${index}">✖</button></td>
+    const div = document.createElement('div');
+    div.className = 'checkout-item';
+    div.innerHTML = `
+      <div class="checkout-item-image">
+        <img src="${item.image}" alt="${item.name}">
+      </div>
+      <div class="checkout-item-info">
+        <h3>${item.name}</h3>
+        <p>Precio: ${item.price}€</p>
+        <div class="checkout-item-controls">
+          <label>Cantidad: <input type="number" min="1" value="${item.quantity}" data-index="${index}"></label>
+          <button class="remove-item" data-index="${index}">Eliminar</button>
+        </div>
+        <p class="checkout-subtotal">Subtotal: ${subtotal}€</p>
+      </div>
     `;
-
-    tr.querySelector('button').addEventListener('click', () => {
-      cart.splice(index, 1);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      renderCheckout();
-    });
-
-    tbody.appendChild(tr);
+    itemsContainer.appendChild(div);
   });
 
   totalEl.textContent = `Total: ${total}€`;
+
+  // Eventos cantidad
+  document.querySelectorAll('.checkout-item-controls input').forEach(input => {
+    input.addEventListener('change', e => {
+      const idx = e.target.dataset.index;
+      const val = parseInt(e.target.value);
+      if (val < 1) e.target.value = 1;
+      cart[idx].quantity = val;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCheckout();
+    });
+  });
+
+  // Eventos eliminar
+  document.querySelectorAll('.remove-item').forEach(button => {
+    button.addEventListener('click', e => {
+      const idx = e.target.dataset.index;
+      cart.splice(idx, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCheckout();
+    });
+  });
 }
 
 renderCheckout();
