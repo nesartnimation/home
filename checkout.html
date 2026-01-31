@@ -51,7 +51,7 @@ function renderCheckout() {
   let total = 0;
 
   if (cart.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="6">Tu carrito está vacío</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="6">Todavía no has puesto nada en tu carrito</td></tr>';
     totalEl.textContent = 'Total: 0€';
     return;
   }
